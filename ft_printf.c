@@ -10,20 +10,23 @@ static int write_text(const char **fmt, t_struct *f)
 		++*fmt;
 		f->len++;
 	}
+    ++*fmt;
+    /*if (**fmt == '%')*/
+
 	if (!**fmt)
 		return (0);
 	return (1);
 }
 
-static void			init_zero_struct(t_struct *f)
+static void			init_struct(t_struct *f)
 {
-	f->type = 0;
+	f->type = NULL;
 	f->minus = 0;
 	f->zero = 0;
 	f->width = 0;
-	f->pre = 0;
-	f->point = 0;
-	f->star = 0;
+	f->pre = 0; // TODO rename accuracy
+	f->point = 0; // rename dot
+	f->star = 0; // rename asterisk
 }
 
 int ft_printf(const char *fmt, ...)
@@ -32,17 +35,25 @@ int ft_printf(const char *fmt, ...)
 	 t_struct f;
 
 	 va_start(ap, fmt);
-	 init_zero_struct(&f);
-	 f.len = 0;
-	 write_text(&fmt, &f);
 
+	 f.len = 0;
+	 init_struct(&f);
+     while (write_text(&fmt, &f)) // TODO add init in while
+     {
+         ft_parcer(&fmt, &f, ap); /*parcer*/
+        /*processor*/
+         //printf("%s %d %d %d %d %d %d\n", f.type, f.minus, f.zero, f.width, f.pre, f.point, f.star);
+         init_struct(&f);
+     }
 	 va_end(ap);
 
+     printf("\n%d\n", f.len);
 	 return (1); // return count
 }
 
 int main()
 {
-	ft_printf("test 1%f", 12);
-	return 0;
+    ft_printf("test_1%-012.44dasdf_\n_)%s<_fdsdf%d<*", 12); // TODO сравнить с оригиналом считается ли длинна \n
+    /*ft_printf("test 2%-0 12.0dasdF\n", 12);*/
+    return 0;
 }
