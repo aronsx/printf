@@ -6,7 +6,7 @@
 /*   By: aronsx </var/spool/mail/aronsx>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 23:57:19 by aronsx            #+#    #+#             */
-/*   Updated: 2021/01/22 06:16:09 by aronsx           ###   ########.fr       */
+/*   Updated: 2021/01/22 06:23:35 by aronsx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ static void get_accuracy(const char **fmt, t_struct *f, va_list ap)
 {
     if (**fmt == '.')
     {
-        f->point = 1;
+        f->dot = 1;
         ++*fmt;
         if (**fmt == '*')
         {
-            f->pre = va_arg(ap, int);
+            f->accuracy = va_arg(ap, int);
             ++*fmt;
         }
         if (ft_isdigit(**fmt))
-            f->pre = ft_atoi(*fmt);
+            f->accuracy = ft_atoi(*fmt);
         while(ft_isdigit(**fmt))
             ++*fmt;
     }
@@ -76,7 +76,7 @@ static void get_flags(const char **fmt, t_struct *f)
 {
     get_flags(fmt, f); /*flags*/
     get_width(fmt, f, ap); /*width*/
-    get_accuracy(fmt, f, ap); /*precision*/
+    get_accuracy(fmt, f, ap); /*accuracycision*/
     get_type(fmt, f); /*type return va_end, if not search format*/
     return (1);
 }

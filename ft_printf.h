@@ -11,8 +11,8 @@ typedef struct	s_struct
 	int		minus;
 	int		zero;
 	int		width;
-	int		point;
-	int		pre;
+	int		dot;
+	int		accuracy;
 	int		len;
 	int		asterisk;
 }				t_struct;

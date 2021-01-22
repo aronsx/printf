@@ -24,9 +24,9 @@ static void			init_struct(t_struct *f)
 	f->minus = 0;
 	f->zero = 0;
 	f->width = 0;
-	f->pre = 0; // TODO rename accuracy
-	f->point = 0; // rename dot
-	f->star = 0; // rename asterisk
+	f->accuracy = 0; // TODO rename accuracy
+	f->dot = 0; // rename dot
+	f->asterisk = 0; // rename asterisk
 }
 
 int ft_printf(const char *fmt, ...)
@@ -42,7 +42,7 @@ int ft_printf(const char *fmt, ...)
      {
          ft_parcer(&fmt, &f, ap); /*parcer*/
         /*processor*/
-         //printf("%s %d %d %d %d %d %d\n", f.type, f.minus, f.zero, f.width, f.pre, f.point, f.star);
+         //printf("%s %d %d %d %d %d %d\n", f.type, f.minus, f.zero, f.width, f.accuracy, f.dot, f.asterisk);
          init_struct(&f);
      }
 	 va_end(ap);
