@@ -1,14 +1,15 @@
 #include "ft_printf.h"
 
-/*int ft_processor(const char **fmt, t_struct *f)*/
-/*{*/
+int ft_processor(va_list ap, t_struct *f)
+{
     /*if (**fmt == 'c')*/
     /*if (**fmt == 's')*/
     /*if (**fmt == 'p')*/
-    /*if (**fmt == 'd' || **fmt == 'i')*/
+    if (*f->type == 'd' || *f->type == 'i')
+        ft_get_decimal(ap, f);
     /*if (**fmt == 'u')*/
     /*if (**fmt == 'x' || **fmt == 'X')*/
     /*if (**fmt == '%')*/
-    /*return (1);*/
-/*}*/
+    return (1);
+}
 

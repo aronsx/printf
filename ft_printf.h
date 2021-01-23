@@ -20,4 +20,6 @@ typedef struct	s_struct
 
 int				ft_printf(const char *str, ...);
 int ft_parcer(const char **fmt, t_struct *f, va_list ap);
+int ft_processor(va_list ap, t_struct *f);
+void ft_get_decimal(va_list ap, t_struct *f);
 #endif

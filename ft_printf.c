@@ -55,7 +55,9 @@ int ft_printf(const char *fmt, ...)
 
 int main()
 {
-    ft_printf("test_1%-012.44dasdf_\n_)%s<_fdsdf%d<*", 12); // TODO сравнить с оригиналом считается ли длинна \n
+    int test_integer = 333;
+
+    ft_printf("test_%-012.44d<asdf_)%s<_fdsdf%d<", test_integer); // TODO сравнить с оригиналом считается ли длинна \n
     /*ft_printf("test 2%-0 12.0dasdF\n", 12);*/
     return 0;
 }
