@@ -25,8 +25,10 @@ static void			init_struct(t_struct *f)
 	f->zero = 0;
 	f->width = 0;
 	f->accuracy = 0; // TODO rename accuracy
+	f->accuracy_minus = 0; // TODO rename accuracy
 	f->dot = 0; // rename dot
 	f->asterisk = 0; // rename asterisk
+    /* pmin - минус после точки (отрицательная точность) */
 }
 
 int ft_printf(const char *fmt, ...)
@@ -47,7 +49,7 @@ int ft_printf(const char *fmt, ...)
      }
 	 va_end(ap);
 
-     printf("\n%d\n", f.len);
+     //printf("\n%d\n", f.len);
 	 return (1); // return count
 }
 

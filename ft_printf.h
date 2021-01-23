@@ -13,6 +13,7 @@ typedef struct	s_struct
 	int		width;
 	int		dot;
 	int		accuracy;
+	int		accuracy_minus;
 	int		len;
 	int		asterisk;
 }				t_struct;
